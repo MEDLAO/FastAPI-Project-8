@@ -28,11 +28,7 @@ def generate_identity(locale: str = Query(default="en_US")):
         "address": {
             "street_address": fake.street_address(),
             "city": fake.city(),
-            "state": fake.state(),
             "zip_code": fake.postcode(),
             "country": fake.country(),
-            "country_code": fake.country_code(),
-            "latitude": fake.latitude(),
-            "longitude": fake.longitude()
         },
     }
