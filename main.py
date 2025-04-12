@@ -1,8 +1,14 @@
 from fastapi import FastAPI, Query
+from faker.config import AVAILABLE_LOCALES
 from faker import Faker
 
 
 app = FastAPI()
+
+
+@app.get("/locales")
+def get_locales():
+    return {"available_locales": AVAILABLE_LOCALES}
 
 
 @app.get("/generate")
