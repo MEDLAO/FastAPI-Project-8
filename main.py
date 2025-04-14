@@ -25,6 +25,28 @@ async def enforce_rapidapi_usage(request: Request, call_next):
     return await call_next(request)
 
 
+@app.get("/health")
+def health_check():
+    return {"status": "healthy"}
+
+
+@app.get("/")
+def read_root():
+    welcome_message = (
+        "Welcome!"
+        "¡Bienvenido!"
+        "欢迎!"
+        "नमस्ते!"
+        "مرحبًا!"
+        "Olá!"
+        "Здравствуйте!"
+        "Bonjour!"
+        "বাংলা!"
+        "こんにちは!"
+    )
+    return {"message": welcome_message}
+
+
 @app.get("/locales")
 def get_locales():
     return {"available_locales": AVAILABLE_LOCALES}
